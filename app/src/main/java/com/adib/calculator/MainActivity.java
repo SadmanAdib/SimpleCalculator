@@ -12,10 +12,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     EditText number1, number2;
     TextView result;
-    Button add, subtract, multiply, divide;
+    Button add, subtract, multiply, divide, ac;
 
-    float num1, num2;
-    float answer;
+    Float num1, num2;
+    Float answer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         subtract = findViewById( R.id.subtract );
         multiply = findViewById( R.id.multiply );
         divide = findViewById( R.id.divide );
+        ac = findViewById( R.id.buttonC );
 
         add.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -40,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    num1 = Integer.parseInt( number1.getText().toString() );
-                    num2 = Integer.parseInt( number2.getText().toString() );
+                    num1 = Float.parseFloat( number1.getText().toString() );
+                    num2 = Float.parseFloat( number2.getText().toString() );
                     answer = num1+num2;
                     result.setText( String.valueOf( answer ) );
                 }
@@ -59,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    num1 = Integer.parseInt( number1.getText().toString() );
-                    num2 = Integer.parseInt( number2.getText().toString() );
+                    num1 = Float.parseFloat( number1.getText().toString() );
+                    num2 = Float.parseFloat( number2.getText().toString() );
                     answer = num1-num2;
                     result.setText( String.valueOf( answer ) );
                 }
@@ -76,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    num1 = Integer.parseInt( number1.getText().toString() );
-                    num2 = Integer.parseInt( number2.getText().toString() );
+                    num1 = Float.parseFloat( number1.getText().toString() );
+                    num2 = Float.parseFloat( number2.getText().toString() );
                     answer = num1*num2;
                     result.setText( String.valueOf( answer ) );
                 }
@@ -93,11 +94,19 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    num1 = Integer.parseInt( number1.getText().toString() );
-                    num2 = Integer.parseInt( number2.getText().toString() );
+                    num1 = Float.parseFloat( number1.getText().toString() );
+                    num2 = Float.parseFloat( number2.getText().toString() );
                     answer = num1/num2;
                     result.setText( String.valueOf( answer ) );
                 }
+            }
+        } );
+
+        ac.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number1.setText( "" );
+                number2.setText( "" );
             }
         } );
 
